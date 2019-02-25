@@ -1,0 +1,33 @@
+<!-- {{data | json}}
+abcdefghijklmnopqrstuvwxyz -->
+<div class="col-md-12">
+    <div  class="col-md-6">
+        <canvas class="pie" baseChart
+                [data]="pieChartData"
+                [labels]="pieChartLabels"
+                [chartType]="pieChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+    </div>
+    <div class="col-md-6" class="scroll">
+        <label *ngFor="let i of data ">
+            <h3>{{i.question}}</h3> <b>Selected Answer:</b>  {{i.selected_answer}} <br/>
+            <b>Correct Answer:</b> {{i.correct}}
+            <div *ngIf="i.selected_answer != i.correct">
+                <label>{{i.selected_answer}}<br/> <span style="color: green">{{i.correct}}</span></label>
+            </div>
+            <div *ngIf="i.selected_answer === i.correct">
+                <label>{{i.selected_answer}}</label>
+            </div>
+        </label>
+    </div>
+</div>
+<div class="col-md-12">
+    <div class="total">
+        <b>Total:</b>{{total}} <br/> 
+        <b>Grade:</b>{{a}}   <br/>
+        <b>Average:</b>{{avg}}</div>
+</div>
+
+  
+  

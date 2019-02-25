@@ -1,0 +1,18 @@
+<mat-horizontal-stepper [linear]="isLinear" #stepper>
+    <mat-step editable="false" *ngFor="let step of records; let i = index">
+      <!-- {{step | json}} -->
+        <ng-template matStepLabel>{{step.records}}
+        </ng-template>
+        <form>
+          <h3>{{step.question}}</h3>
+            <div >
+                <label *ngFor="let a of step.options;"> 
+                  <input type="radio" [value]="a" class="{{i}}"  (change)="getAnswer($event)" name="answers" value="{{a}}"> {{a}}
+                </label>
+             </div>
+          <!-- <label>{{answers}}</label> -->
+         
+        </form>
+
+    </mat-step>       
+  </mat-horizontal-stepper>
